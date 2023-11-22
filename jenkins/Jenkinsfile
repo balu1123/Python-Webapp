@@ -22,7 +22,7 @@ pipeline{
     stage("Sonar Analysis"){
       steps{
         script{
-          scannerHome = tool 'SonarQube 4.6.1'
+          scannerHome = tool 'sonarqube'
         }
           withSonarQubeEnv('SonarQube Scanner'){
             sh "${scannerHome}/bin/sonar-scanner"
