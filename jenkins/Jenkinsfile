@@ -22,7 +22,11 @@ pipeline{
     stage("Sonar Analysis"){
       steps{
         script{
-          withSonarQubeEnv(credentialsId: 'sonar')
+          scannerHome = tool 'SonarQube 4.6.1'
+        }
+          withSonarQubeEnv(credentialsId: 'sonar'){
+            sh "${scannerHome}/bin/sonar-scanner"
+          }
         }
       }
     }
