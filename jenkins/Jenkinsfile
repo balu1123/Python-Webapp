@@ -24,11 +24,11 @@ pipeline{
         script{
           scannerHome = tool 'SonarQube 4.6.1'
         }
-          withSonarQubeEnv(credentialsId: 'sonar'){
+          withSonarQubeEnv('SonarQube Scanner'){
             sh "${scannerHome}/bin/sonar-scanner"
           }
         }
       }
-      
+
   }
 }
